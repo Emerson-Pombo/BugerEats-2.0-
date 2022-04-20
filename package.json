@@ -20,5 +20,8 @@
   "homepage": "https://github.com/Emerson-Pombo/BugerEats-2.0-#readme",
   "devDependencies": {
     "cypress": "^9.5.4"
+  },
+  "dependencies": {
+    "faker-br": "^0.4.1"
   }
 }

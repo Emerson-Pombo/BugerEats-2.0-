@@ -51,19 +51,77 @@ class signup{
         cy.get('[alt="Moto"]').should('be.visible');
         //verificar Método de entrga 'Bike Elétrica'
         cy.get('[alt="Bike Elétrica"]').should('be.visible');
-        //verificar Método de entrga 'Van/Carro'
+        //verificar Método de entrega 'Van/Carro'
         cy.get('[alt="Van/Carro"]').should('be.visible');
     
         //verificar campo 'Foto da sua CNH'
         cy.get('div.dropzone p ').should('have.text', 'Foto da sua CNH')
     
     }
+    requireFields(){
+        //verificar click no botão "Cadastre-se para fazer entregas"
+        cy.get('[type="submit"]').click();
+        //verificando menssagen de alerta para campos obrigatórios não preenchidos
+        cy.get('[class="alert-error"]').contains('É necessário informar o nome', {mult:true})
+        cy.get('[class="alert-error"]').contains('É necessário informar o CPF', {mult:true}) 
+        cy.get('[class="alert-error"]').contains('É necessário informar o email', {mult:true})
+        cy.get('[class="alert-error"]').contains('É necessário informar o número do endereço', {mult:true})
+        cy.get('[class="alert-error"]').contains('Selecione o método de entrega', {mult:true})
+        cy.get('[class="alert-error"]').contains('Adicione uma foto da sua CNH', {mult:true})   
+    }
     // cadastro com valores corretos
     correctRegistration(deliver){
+        //verificar o preenchimento do campo "Nome completo"
+        cy.get('[name="fullName"]').type(deliver.fullName)
+        //verificar o preenchimento do campo "CPF somente número"
         cy.get('input[name="cpf"]').type(deliver.cpf) 
+        //verificar o preenchimento do campo "E-mail"
+        cy.get('[name="email"]').type(deliver.email)
+        //verificar o preenchimento do campo "Whatsapp"
+        cy.get('[name="whatsapp"]').type(deliver.numberPhone)
+
+        //verificar o preenchimento do campo "CEP"
+        cy.get('[name="postalcode"]').type(deliver.address.postalCode)
+        //verificar click no botão "Buscar CEP"
+        cy.get('[value="Buscar CEP"]').click();
+        //verificar o preenchimento do campo "Número"
+        cy.get('[name="address-number"]').type(deliver.address.number)
+        //verificar o preenchimento do campo "Complemento"
+        cy.get('[name="address-details"]').type(deliver.address.details)
+        //verificar a seleção do campo "Método de entrega"
+        cy.get('[alt="Moto"]').click()
+        
+        
+
+        
+        
     }
+    //upload da CNH
+    submitCNH(){
+        //verificar o upload da foto da CNH
+        cy.get('[type="file"]').selectFile('cypress/fixtures/img/cnh-digital.jpg', {force: true})
+    }
+    //enviar dados
+    submit(){
+        //verificar click no botão "Cadastre-se para fazer entregas"
+        cy.get('[type="submit"]').click();
+    }
+    //verificar se o cadastro foi concluido com sucesso 
+    modalContentShouldBe(expectedMessage) {
+        cy.get('.swal2-container  .swal2-html-container')
+            .should('have.text', expectedMessage)
+    }
+    //verificar cpf invalido
+    alertMessageShouldBe(expectedMessage) {
+        cy.get('.alert-error').should('have.text', expectedMessage)
+    }
+    //verificar email invalido
+    alertMessageShouldBe(expectedMessage) {
+        cy.contains('.alert-error', expectedMessage).should('be.visible')
+    }
+
     
-    
+
     
 }
 export default new signup;

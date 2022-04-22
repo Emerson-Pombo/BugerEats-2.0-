@@ -30,7 +30,6 @@ describe('Signup', () => {
 
     
 });
-
 describe('Register incorrect', () => {
     it('Register to deliver (incorrect CPF)', () => {
         var deliver = signupFactory.deliver()

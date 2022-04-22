@@ -90,11 +90,6 @@ class signup{
         cy.get('[name="address-details"]').type(deliver.address.details)
         //verificar a seleção do campo "Método de entrega"
         cy.get('[alt="Moto"]').click()
-        
-        
-
-        
-        
     }
     //upload da CNH
     submitCNH(){
@@ -119,7 +114,46 @@ class signup{
     alertMessageShouldBe(expectedMessage) {
         cy.contains('.alert-error', expectedMessage).should('be.visible')
     }
+    //para o teste de resposividade
+    responsive(deliver){
+        //visitando a pagina Home
+        cy.visit('https://buger-eats-qa.vercel.app/');
+        //verificando url
+        cy.url().should('eq', 'https://buger-eats-qa.vercel.app/');
+        // verificando click no botão "Cadastre-se para fazer entregas"
+        cy.get('a[href="/deliver"]').click();
+        //verificar url de deliver
+        cy.url().should('eq', 'https://buger-eats-qa.vercel.app/deliver');
 
+        //verificar o preenchimento do campo "Nome completo"
+        cy.get('[name="fullName"]').type(deliver.fullName)
+        //verificar o preenchimento do campo "CPF somente número"
+        cy.get('input[name="cpf"]').type(deliver.cpf) 
+        //verificar o preenchimento do campo "E-mail"
+        cy.get('[name="email"]').type(deliver.email)
+        //verificar o preenchimento do campo "Whatsapp"
+        cy.get('[name="whatsapp"]').type(deliver.numberPhone)
+
+        //verificar o preenchimento do campo "CEP"
+        cy.get('[name="postalcode"]').type(deliver.address.postalCode)
+        //verificar click no botão "Buscar CEP"
+        cy.get('[value="Buscar CEP"]').click();
+        //verificar o preenchimento do campo "Número"
+        cy.get('[name="address-number"]').type(deliver.address.number)
+        //verificar o preenchimento do campo "Complemento"
+        cy.get('[name="address-details"]').type(deliver.address.details)
+        //verificar a seleção do campo "Método de entrega"
+        cy.get('[alt="Moto"]').click()
+
+        //verificar o upload da foto da CNH
+        cy.get('[type="file"]').selectFile('cypress/fixtures/img/cnh-digital.jpg', {force: true})
+    
+        //verificar click no botão "Cadastre-se para fazer entregas"
+        cy.get('[type="submit"]').click();
+
+        
+    
+    }
     
 
     

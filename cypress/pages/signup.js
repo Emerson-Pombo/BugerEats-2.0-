@@ -58,6 +58,7 @@ class signup{
         cy.get('div.dropzone p ').should('have.text', 'Foto da sua CNH')
     
     }
+    //verificar alertas de erro dos campos obrigatórios 
     requireFields(){
         //verificar click no botão "Cadastre-se para fazer entregas"
         cy.get('[type="submit"]').click();
@@ -69,7 +70,7 @@ class signup{
         cy.get('[class="alert-error"]').contains('Selecione o método de entrega', {mult:true})
         cy.get('[class="alert-error"]').contains('Adicione uma foto da sua CNH', {mult:true})   
     }
-    // cadastro com valores corretos
+    //verificar cadastro com valores corretos
     correctRegistration(deliver){
         //verificar o preenchimento do campo "Nome completo"
         cy.get('[name="fullName"]').type(deliver.fullName)
@@ -90,13 +91,19 @@ class signup{
         cy.get('[name="address-details"]').type(deliver.address.details)
         //verificar a seleção do campo "Método de entrega"
         cy.get('[alt="Moto"]').click()
+        cy.get('[alt="Bike Elétrica"]').click()
+        cy.get('[alt="Van/Carro"]').click()
+        cy.get('[alt="Moto"]').click()
+        cy.get('[alt="Bike Elétrica"]').click()
+        cy.get('[alt="Van/Carro"]').click()
+        cy.get('[alt="Moto"]').click()
     }
-    //upload da CNH
+    //verificar upload do documento
     submitCNH(){
         //verificar o upload da foto da CNH
         cy.get('[type="file"]').selectFile('cypress/fixtures/img/cnh-digital.jpg', {force: true})
     }
-    //enviar dados
+    //verificar envio de dados
     submit(){
         //verificar click no botão "Cadastre-se para fazer entregas"
         cy.get('[type="submit"]').click();
@@ -114,7 +121,7 @@ class signup{
     alertMessageShouldBe(expectedMessage) {
         cy.contains('.alert-error', expectedMessage).should('be.visible')
     }
-    //para o teste de resposividade
+    //varificar resposividade
     responsive(deliver){
         //visitando a pagina Home
         cy.visit('https://buger-eats-qa.vercel.app/');
@@ -144,6 +151,12 @@ class signup{
         cy.get('[name="address-details"]').type(deliver.address.details)
         //verificar a seleção do campo "Método de entrega"
         cy.get('[alt="Moto"]').click()
+        cy.get('[alt="Bike Elétrica"]').click()
+        cy.get('[alt="Van/Carro"]').click()
+        cy.get('[alt="Moto"]').click()
+        cy.get('[alt="Bike Elétrica"]').click()
+        cy.get('[alt="Van/Carro"]').click()
+        cy.get('[alt="Moto"]').click()
 
         //verificar o upload da foto da CNH
         cy.get('[type="file"]').selectFile('cypress/fixtures/img/cnh-digital.jpg', {force: true})
@@ -153,9 +166,6 @@ class signup{
 
         
     
-    }
-    
-
-    
+    }  
 }
 export default new signup;

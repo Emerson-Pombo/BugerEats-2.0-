@@ -9,11 +9,11 @@ describe('Signup', () => {
         signup.go();
         signup.page();
     });
-    it('checking fields to be filled', () =>{
+    it('checking fields to be filled', () => {
         signup.go();
         signup.fields();
     });
-    it('checking fields', () =>{
+    it('checking fields', () => {
         signup.go();
         signup.requireFields();
     });
@@ -28,7 +28,7 @@ describe('Signup', () => {
         signup.modalContentShouldBe(expectedMessage)
     });
 
-    
+
 });
 describe('Register incorrect', () => {
     it('Register to deliver (incorrect CPF)', () => {
@@ -67,76 +67,70 @@ describe('Required fields', () => {
         { field: 'delivery-method', output: 'Selecione o método de entrega' },
         { field: 'cnh', output: 'Adicione uma foto da sua CNH' }
     ]
-    before(function(){
+    before(function () {
         signup.go()
         signup.submit()
     })
-    messages.forEach(function(msg){
-        it(`${msg.field} is required`, function(){
+    messages.forEach(function (msg) {
+        it(`${msg.field} is required`, function () {
             signup.alertMessageShouldBe(msg.output)
         })
     })
 });
-
 describe('Responsive test', () => {
     context('iphone-3:', () => {
         it('320x480', () => {
             cy.viewport('iphone-3');
-        var deliver = signupFactory.deliver()
-        const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
-        signup.responsive(deliver)
-        signup.modalContentShouldBe(expectedMessage)
+            var deliver = signupFactory.deliver()
+            const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
+            signup.responsive(deliver)
+            signup.modalContentShouldBe(expectedMessage)
         });
     });
-
     context('iphone-6:', () => {
         it('375x667', () => {
             cy.viewport('iphone-6');
-        var deliver = signupFactory.deliver()
-        const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
-        signup.responsive(deliver)
-        signup.modalContentShouldBe(expectedMessage)
+            var deliver = signupFactory.deliver()
+            const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
+            signup.responsive(deliver)
+            signup.modalContentShouldBe(expectedMessage)
         });
     });
-
     context('samsung-note9:', () => {
         it('414x846', () => {
             cy.viewport('samsung-note9');
-        var deliver = signupFactory.deliver()
-        const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
-        signup.responsive(deliver)
-        signup.modalContentShouldBe(expectedMessage)
+            var deliver = signupFactory.deliver()
+            const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
+            signup.responsive(deliver)
+            signup.modalContentShouldBe(expectedMessage)
         });
     });
-
     context('ipad-2:', () => {
         it('768x1024', () => {
             cy.viewport('ipad-2');
-        var deliver = signupFactory.deliver()
-        const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
-        signup.responsive(deliver)
-        signup.modalContentShouldBe(expectedMessage)
+            var deliver = signupFactory.deliver()
+            const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
+            signup.responsive(deliver)
+            signup.modalContentShouldBe(expectedMessage)
         });
     });
-
     context('macbook-11:', () => {
         it('1366x768', () => {
             cy.viewport('macbook-11');
-        var deliver = signupFactory.deliver()
-        const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
-        signup.responsive(deliver)
-        signup.modalContentShouldBe(expectedMessage)
+            var deliver = signupFactory.deliver()
+            const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
+            signup.responsive(deliver)
+            signup.modalContentShouldBe(expectedMessage)
         });
     });
-
     context('macbook-15:', () => {
         it('1440x900', () => {
             cy.viewport('macbook-15');
-        var deliver = signupFactory.deliver()
-        const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
-        signup.responsive(deliver)
-        signup.modalContentShouldBe(expectedMessage)
+            var deliver = signupFactory.deliver()
+            const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
+            signup.responsive(deliver)
+            signup.modalContentShouldBe(expectedMessage)
         });
     });
-    
+
 });

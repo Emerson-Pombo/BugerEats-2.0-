@@ -1,3 +1,5 @@
+// CHAMADA DOS CASOS DE TESTES
+
 /// <reference types ="cypress"/>
 
 import signupFactory from "../factories/signupFactory";

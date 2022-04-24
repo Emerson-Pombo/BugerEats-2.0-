@@ -1,3 +1,5 @@
+//CRIAÇÃO DE CASOS DE TESTES 
+
 /// <reference types ="cypress"/>
 
 class signup{
@@ -89,7 +91,7 @@ class signup{
         cy.get('[name="address-number"]').type(deliver.address.number)
         //verificar o preenchimento do campo "Complemento"
         cy.get('[name="address-details"]').type(deliver.address.details)
-        
+
         //verificar a seleção do campo "Método de entrega"
         //verificar a seleção do "Método de entrega" como "Moto"
         cy.get('[alt="Moto"]').click()

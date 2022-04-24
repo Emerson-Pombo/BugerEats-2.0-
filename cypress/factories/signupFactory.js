@@ -1,3 +1,6 @@
+
+//FAKERS PARA MOCKAR DADOS
+
 var faker = require('faker-br');
 
 export default {

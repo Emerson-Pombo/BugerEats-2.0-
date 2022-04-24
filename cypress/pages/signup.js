@@ -89,13 +89,21 @@ class signup{
         cy.get('[name="address-number"]').type(deliver.address.number)
         //verificar o preenchimento do campo "Complemento"
         cy.get('[name="address-details"]').type(deliver.address.details)
+        
         //verificar a seleção do campo "Método de entrega"
+        //verificar a seleção do "Método de entrega" como "Moto"
         cy.get('[alt="Moto"]').click()
+        //verificar a seleção do "Método de entrega" como "Bike Elétrica"
         cy.get('[alt="Bike Elétrica"]').click()
+        //verificar a seleção do "Método de entrega" como "Van/Carro"
         cy.get('[alt="Van/Carro"]').click()
+        //verificar remoção da seleção do "Método de entrega" como "Moto"
         cy.get('[alt="Moto"]').click()
+        //verificar remoção da seleção do "Método de entrega" como "Bike Elétrica"
         cy.get('[alt="Bike Elétrica"]').click()
+        //verificar remoção da seleção do "Método de entrega" como "Van/Carro"
         cy.get('[alt="Van/Carro"]').click()
+        //verificar a seleção do "Método de entrega" como "Moto"
         cy.get('[alt="Moto"]').click()
     }
     //verificar upload do documento
@@ -149,13 +157,21 @@ class signup{
         cy.get('[name="address-number"]').type(deliver.address.number)
         //verificar o preenchimento do campo "Complemento"
         cy.get('[name="address-details"]').type(deliver.address.details)
+
         //verificar a seleção do campo "Método de entrega"
+        //verificar a seleção do "Método de entrega" como "Moto"
         cy.get('[alt="Moto"]').click()
+        //verificar a seleção do "Método de entrega" como "Bike Elétrica"
         cy.get('[alt="Bike Elétrica"]').click()
+        //verificar a seleção do "Método de entrega" como "Van/Carro"
         cy.get('[alt="Van/Carro"]').click()
+        //verificar remoção da seleção do "Método de entrega" como "Moto"
         cy.get('[alt="Moto"]').click()
+        //verificar remoção da seleção do "Método de entrega" como "Bike Elétrica"
         cy.get('[alt="Bike Elétrica"]').click()
+        //verificar remoção da seleção do "Método de entrega" como "Van/Carro"
         cy.get('[alt="Van/Carro"]').click()
+        //verificar a seleção do "Método de entrega" como "Moto"
         cy.get('[alt="Moto"]').click()
 
         //verificar o upload da foto da CNH

@@ -4,7 +4,7 @@ class signup{
     //verificar url
     go(){
         //visitando a pagina Home
-        cy.visit('https://buger-eats-qa.vercel.app/');
+        cy.visit('/');
         //verificando url
         cy.url().should('eq', 'https://buger-eats-qa.vercel.app/');
         // verificando click no botão "Cadastre-se para fazer entregas"
@@ -56,7 +56,6 @@ class signup{
     
         //verificar campo 'Foto da sua CNH'
         cy.get('div.dropzone p ').should('have.text', 'Foto da sua CNH')
-    
     }
     //verificar alertas de erro dos campos obrigatórios 
     requireFields(){
@@ -132,7 +131,7 @@ class signup{
     //varificar resposividade
     responsive(deliver){
         //visitando a pagina Home
-        cy.visit('https://buger-eats-qa.vercel.app/');
+        cy.visit('/');
         //verificando url
         cy.url().should('eq', 'https://buger-eats-qa.vercel.app/');
         // verificando click no botão "Cadastre-se para fazer entregas"
@@ -179,9 +178,6 @@ class signup{
     
         //verificar click no botão "Cadastre-se para fazer entregas"
         cy.get('[type="submit"]').click();
-
-        
-    
     }  
 }
 export default new signup;

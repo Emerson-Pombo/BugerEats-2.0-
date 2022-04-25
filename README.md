@@ -12,8 +12,9 @@
 5. cypress > pages > signup.js (casos de testes da pagina de cadastro)
 
 #### Para rodar o pojeto:
-1. comando: yarn (na pasta do projeto)
-2. comando: yarn cypress:open (para rodar o testes)
+##### Comandos:
+1. yarn (na pasta do projeto)
+2. yarn cypress:open (para rodar o testes)
 
 ![image](https://user-images.githubusercontent.com/71274564/160697053-63180612-a16b-4426-b72c-903cf4659e8c.png)
 

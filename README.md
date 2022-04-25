@@ -1,4 +1,4 @@
-# Buger Eats (Tests Usando Cypress)
+# Buger Eats 2.0 (Tests Usando Cypress)
 
 ## Projeto de testes de aceitação do app Buger Eats
 

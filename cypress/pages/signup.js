@@ -1,5 +1,3 @@
-//CRIAÇÃO DE CASOS DE TESTES 
-
 /// <reference types ="cypress"/>
 
 class signup{

@@ -11,6 +11,11 @@
 4. cypress > pages > home.js (casos de testes da pagina home)
 5. cypress > pages > signup.js (casos de testes da pagina de cadastro)
 
+#### Para rodar o pojeto:
+##### Comandos:
+1. yarn (na pasta do projeto)
+2. yarn cypress:open (para rodar o testes)
+
 ![image](https://user-images.githubusercontent.com/71274564/160697053-63180612-a16b-4426-b72c-903cf4659e8c.png)
 
 ![image](https://user-images.githubusercontent.com/71274564/160697271-e615001f-1757-4c5e-8145-2ac2ff9998af.png)
